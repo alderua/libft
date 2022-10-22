@@ -6,13 +6,12 @@
 /*   By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 20:03:19 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/09/21 20:50:55 by ialdecoa         ###   ########.fr       */
+/*   Updated: 2022/10/22 22:22:57 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-
-int ft_isalpha(int c);
+#include "libft.h"
 
 int test_is_alpha()
 {
@@ -24,7 +23,7 @@ int test_is_alpha()
 	r = ft_isalpha(c);
 
 	if (r == 0)
-		printf("No es un letra");
+		printf("No es un letraa");
 	if (r == 1)
 		printf("es una letra");
 
