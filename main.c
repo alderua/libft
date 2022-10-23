@@ -6,7 +6,7 @@
 /*   By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 20:03:19 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/10/23 02:11:15 by ialdecoa         ###   ########.fr       */
+/*   Updated: 2022/10/23 10:52:33 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	test_is_alpha(void)
 	c = '1';
 	r = ft_isalpha(c);
 	if (r == 0)
-		printf("No es un letra");
+		printf("%c No es un letra", c);
 	if (r == 1)
-		printf("es una letra");
+		printf("%c es una letra", c);
 	return (0);
 }
 
@@ -37,9 +37,9 @@ int	test_is_digit(void)
 	c = '5';
 	r = ft_isdigit(c);
 	if (r == 0)
-		printf("No es un numero");
+		printf("%c No es un numero", c);
 	if (r == 1)
-		printf("es un numero");
+		printf("%c es un numero", c);
 	return (0);
 }
 
@@ -52,9 +52,9 @@ int	test_is_alnum(void)
 	c = '*';
 	r = ft_isalnum(c);
 	if (r == 0)
-		printf("No es un caracter valido");
+		printf("%c No es un caracter valido", c);
 	if (r == 1)
-		printf("es un caracter valido");
+		printf("%c es un caracter valido", c);
 	return (0);
 }
 
@@ -64,13 +64,41 @@ int	test_is_ascii(void)
 	int		r;
 
 	r = 0;
-	c = '*';
+	c = 'u';
 	r = ft_isascii(c);
 	if (r == 0)
-		printf("No es un caracter valido");
+		printf("%c No es un caracter valido", c);
 	if (r == 1)
-		printf("es un caracter valido");
+		printf("%c es un caracter valido", c);
 	return (0);
+}
+
+int	test_is_print(void)
+{
+	char	c;
+	int		r;
+
+	r = 0;
+	c = ' ';
+	r = ft_isprint(c);
+	if (r == 0)
+		printf("%c No es un caracter valido", c);
+	if (r == 1)
+		printf("%c es un caracter valido", c);
+	return (0);
+}
+
+int test_strlen(void)
+{
+	char	len[] = "123456789";
+	int	l = 0;
+
+	l = ft_strlen(len);
+	if (l == 0)
+		printf("No hay caracteres");
+	if (l > 0)
+		printf("%d es la longitud de la cadena", l);
+	return(0);
 }
 
 int	main(void)
@@ -85,9 +113,11 @@ int	main(void)
 		printf("\n 1 - ft_isalpha");
 		printf("\n 2 - ft_isdigit");
 		printf("\n 3 - ft_isalnum");
-		printf("\n 4 - ft_isascii\n");	
+		printf("\n 4 - ft_isascii");	
+		printf("\n 5 - ft_isprint");
+		printf("\n 6 - ft_strlen\n");
 		scanf("%d", &test);
-		if (test >= 0 && test <= 4)
+		if (test >= 0 && test <= 6)
 		{
 			if (test == 0)
 				printf("hasta luego crack");
@@ -99,6 +129,10 @@ int	main(void)
 				test_is_alnum();
 			if (test == 4)
 				test_is_ascii();
+			if (test == 5)
+				test_is_print();
+			if (test == 6)
+				test_strlen();
 		}
 		else
 			printf("Test inexistente, prueba de nuevo");

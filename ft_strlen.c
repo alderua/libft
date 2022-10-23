@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isascii.c                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 19:26:59 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/10/23 10:19:19 by ialdecoa         ###   ########.fr       */
+/*   Created: 2022/10/23 10:37:28 by ialdecoa          #+#    #+#             */
+/*   Updated: 2022/10/23 10:50:44 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-int	ft_isascii(int c)
+int	ft_strlen(char *str)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	else
-		return (0);
+	int	a;
+
+	a = 0;
+	while (str[a] != '\0')
+	{
+		a++;
+	}
+	return (a);
 }
