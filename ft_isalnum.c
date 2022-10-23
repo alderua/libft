@@ -1,16 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   isalnum.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/22 20:24:16 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/10/23 02:12:03 by ialdecoa         ###   ########.fr       */
+/*   Created: 2022/09/21 19:26:59 by ialdecoa          #+#    #+#             */
+/*   Updated: 2022/10/23 01:34:28 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int);
-int ft_isdigit(int);
-int ft_isalnum(int);
-int ft_isascii(int);
+#include "libft.h"
+
+int	ft_isalnum(int c)
+{
+	if (c >= '0' && c <= 'z')
+		return (1);
+	else
+		return (0);
+}
