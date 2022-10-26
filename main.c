@@ -6,7 +6,7 @@
 /*   By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 20:03:19 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/10/26 21:16:43 by ialdecoa         ###   ########.fr       */
+/*   Updated: 2022/10/26 21:26:27 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,16 @@ int test_memset(void)
 	return(0);
 }
 
+int test_bzero(void)
+{
+	char	len[] = "hola amigo como estas";
+	int	l = 6;
+
+	printf("\n%s\n", len);
+	ft_bzero(len, l);
+	printf("%s\n", len);
+	return(0);
+}
 
 int	main(void)
 {
@@ -129,9 +139,10 @@ int	main(void)
 		printf("\n 4 - ft_isascii");	
 		printf("\n 5 - ft_isprint");
 		printf("\n 6 - ft_strlen");
-		printf("\n 7 - ft_memset\n");
+		printf("\n 7 - ft_memset");
+		printf("\n 8 - ft_bzero\n");
 		scanf("%d", &test);
-		if (test >= 0 && test <= 7)
+		if (test >= 0 && test <= 8)
 		{
 			if (test == 0)
 				printf("hasta luego crack");
@@ -149,6 +160,8 @@ int	main(void)
 				test_strlen();
 			if (test == 7)
 				test_memset();
+			if (test == 8)
+				test_bzero();
 		}
 		else
 			printf("Test inexistente, prueba de nuevo");

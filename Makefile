@@ -6,13 +6,13 @@
 #    By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/22 20:06:51 by ialdecoa          #+#    #+#              #
-#    Updated: 2022/10/26 21:03:23 by ialdecoa         ###   ########.fr        #
+#    Updated: 2022/10/26 21:20:53 by ialdecoa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 OBJS = main.o ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o \
-	   ft_strlen.o ft_memset.o
+	   ft_strlen.o ft_memset.o ft_bzero.o
 
 CFLAGS = -Wall -Werror -Wextra
 
@@ -30,6 +30,7 @@ ft_isascii.o: ft_isascii.c libft.h
 ft_isprint.o: ft_isprint.c libft.h
 ft_strlen.o: ft_strlen.c libft.h
 ft_memset.o: ft_memset.c libft.h
+ft_bzero.o: ft_bzero.c libft.h
 
 .PHONY: fclean
 
