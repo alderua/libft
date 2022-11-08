@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/22 20:24:16 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/11/08 10:13:39 by ialdecoa         ###   ########.fr       */
+/*   Created: 2022/10/23 11:58:15 by ialdecoa          #+#    #+#             */
+/*   Updated: 2022/11/08 10:27:57 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int);
-int ft_isdigit(int);
-int ft_isalnum(int);
-int ft_isascii(int);
-int ft_isprint(int);
-int ft_strlen(char[]);
-int ft_memset(char[], int, int);
-int ft_bzero(char[], int);
-int ft_memcpy(char[],char[], int);
+#include <string.h>
+
+void	*ft_memcpy(void *dest, const void *src, size_t len)
+{
+	char		*a;
+	const char	*b;
+
+	a = dest;
+	b = src;
+	
+	while (len-- > 0)
+		*(a++) = *(b++);
+	return (dest);
+}

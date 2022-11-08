@@ -6,7 +6,7 @@
 /*   By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 20:03:19 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/10/26 21:26:27 by ialdecoa         ###   ########.fr       */
+/*   Updated: 2022/11/08 10:51:20 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,18 @@ int test_bzero(void)
 	return(0);
 }
 
+int test_memcpy(void)
+{
+	char	len[] = "hola amigo como estas";
+	char	dest[] = "hola primo que tal estas";
+	int	l = 16;
+
+	printf("\n%s\n", len);
+	ft_memcpy(len, dest, l);
+	printf("%s\n", len);
+	return(0);
+}
+
 int	main(void)
 {
 	int	test;
@@ -140,9 +152,10 @@ int	main(void)
 		printf("\n 5 - ft_isprint");
 		printf("\n 6 - ft_strlen");
 		printf("\n 7 - ft_memset");
-		printf("\n 8 - ft_bzero\n");
+		printf("\n 8 - ft_bzero");
+		printf("\n 9 - ft_memcpy\n");
 		scanf("%d", &test);
-		if (test >= 0 && test <= 8)
+		if (test >= 0 && test <= 9)
 		{
 			if (test == 0)
 				printf("hasta luego crack");
@@ -162,6 +175,8 @@ int	main(void)
 				test_memset();
 			if (test == 8)
 				test_bzero();
+			if (test == 9)
+				test_memcpy();
 		}
 		else
 			printf("Test inexistente, prueba de nuevo");
