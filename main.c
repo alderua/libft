@@ -6,7 +6,7 @@
 /*   By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 20:03:19 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/11/08 10:51:20 by ialdecoa         ###   ########.fr       */
+/*   Updated: 2022/11/21 07:40:00 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,10 +128,22 @@ int test_memcpy(void)
 {
 	char	len[] = "hola amigo como estas";
 	char	dest[] = "hola primo que tal estas";
-	int	l = 16;
+	int	l = 9;
 
 	printf("\n%s\n", len);
 	ft_memcpy(len, dest, l);
+	printf("%s\n", len);
+	return(0);
+}
+
+int test_memmove(void)
+{
+	char	len[] = "hola amigo";
+	char	dest[] = "hola primo como estas";
+	int	l = 50;
+
+	printf("\n%s\n", len);
+	ft_memmove(len, dest, l);
 	printf("%s\n", len);
 	return(0);
 }
@@ -153,9 +165,10 @@ int	main(void)
 		printf("\n 6 - ft_strlen");
 		printf("\n 7 - ft_memset");
 		printf("\n 8 - ft_bzero");
-		printf("\n 9 - ft_memcpy\n");
+		printf("\n 9 - ft_memcpy");
+		printf("\n 10 - ft_memmove\n");
 		scanf("%d", &test);
-		if (test >= 0 && test <= 9)
+		if (test >= 0 && test <= 10)
 		{
 			if (test == 0)
 				printf("hasta luego crack");
@@ -177,6 +190,8 @@ int	main(void)
 				test_bzero();
 			if (test == 9)
 				test_memcpy();
+			if (test == 10)
+				test_memmove();
 		}
 		else
 			printf("Test inexistente, prueba de nuevo");
