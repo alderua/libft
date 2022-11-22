@@ -6,7 +6,7 @@
 /*   By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 20:03:19 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/11/21 07:40:00 by ialdecoa         ###   ########.fr       */
+/*   Updated: 2022/11/22 05:31:17 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,26 @@ int test_memmove(void)
 	return(0);
 }
 
+int test_toupper(void)
+{
+	char 	a = 'a';
+	char	b;
+
+	b = ft_toupper(a);
+	printf("la letra era = %c -- y ahora es = %c\n", a, b);
+	return(0);
+}
+
+int test_tolower(void)
+{
+	char 	a = 'A';
+	char	b;
+
+	b = ft_tolower(a);
+	printf("la letra era = %c -- y ahora es = %c\n", a, b);
+	return(0);
+}
+
 int	main(void)
 {
 	int	test;
@@ -166,9 +186,11 @@ int	main(void)
 		printf("\n 7 - ft_memset");
 		printf("\n 8 - ft_bzero");
 		printf("\n 9 - ft_memcpy");
-		printf("\n 10 - ft_memmove\n");
+		printf("\n 10 - ft_memmove");
+		printf("\n 11 - ft_toupper");
+		printf("\n 12 - ft_tolower\n");
 		scanf("%d", &test);
-		if (test >= 0 && test <= 10)
+		if (test >= 0 && test <= 12)
 		{
 			if (test == 0)
 				printf("hasta luego crack");
@@ -192,6 +214,10 @@ int	main(void)
 				test_memcpy();
 			if (test == 10)
 				test_memmove();
+			if (test == 11)
+				test_toupper();
+			if (test == 12)
+				test_tolower();
 		}
 		else
 			printf("Test inexistente, prueba de nuevo");

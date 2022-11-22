@@ -6,7 +6,7 @@
 /*   By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 20:24:16 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/11/21 04:47:58 by ialdecoa         ###   ########.fr       */
+/*   Updated: 2022/11/22 04:55:37 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,3 +20,5 @@ int	ft_memset(char[], int, int);
 int	ft_bzero(char[], int);
 int	ft_memcpy(char[],char[], int);
 int	ft_memmove(char[],char[], int);
+int	ft_toupper(char);
+int	ft_tolower(char);
