@@ -6,12 +6,13 @@
 /*   By: ialdecoa <ialdecoa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 04:50:58 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/11/22 05:37:32 by ialdecoa         ###   ########.fr       */
+/*   Updated: 2022/11/25 06:56:15 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 int	ft_tolower(int c)
 {
 	if (c >= 65 && c <= 90)
 		c += 32;
-	return(c);
+	return (c);
 }

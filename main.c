@@ -6,11 +6,12 @@
 /*   By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 20:03:19 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/11/22 05:31:17 by ialdecoa         ###   ########.fr       */
+/*   Updated: 2022/11/25 06:09:52 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 #include "libft.h"
 
 int	test_is_alpha(void)
@@ -79,7 +80,7 @@ int	test_is_print(void)
 	int		r;
 
 	r = 0;
-	c = ' ';
+	c = '%';
 	r = ft_isprint(c);
 	if (r == 0)
 		printf("%c No es un caracter valido", c);
@@ -140,7 +141,7 @@ int test_memmove(void)
 {
 	char	len[] = "hola amigo";
 	char	dest[] = "hola primo como estas";
-	int	l = 50;
+	int	l = 12;
 
 	printf("\n%s\n", len);
 	ft_memmove(len, dest, l);
@@ -168,6 +169,20 @@ int test_tolower(void)
 	return(0);
 }
 
+int test_strchr(void)
+{
+	char	*a = "hola amigo que tal estas";
+	char	c = 'l';
+	char	*p = "";
+
+	p = ft_strchr(a, c);
+//	p = strchr(a, c);
+	printf("mi char= %c \n", *p);
+	if (p != 0)
+		printf("Caracter inicial: %c \n", *p);
+	return(0);
+}
+
 int	main(void)
 {
 	int	test;
@@ -188,9 +203,10 @@ int	main(void)
 		printf("\n 9 - ft_memcpy");
 		printf("\n 10 - ft_memmove");
 		printf("\n 11 - ft_toupper");
-		printf("\n 12 - ft_tolower\n");
+		printf("\n 12 - ft_tolower");
+		printf("\n 13 - ft_strchr\n");
 		scanf("%d", &test);
-		if (test >= 0 && test <= 12)
+		if (test >= 0 && test <= 13)
 		{
 			if (test == 0)
 				printf("hasta luego crack");
@@ -218,6 +234,8 @@ int	main(void)
 				test_toupper();
 			if (test == 12)
 				test_tolower();
+			if (test == 13)
+				test_strchr();
 		}
 		else
 			printf("Test inexistente, prueba de nuevo");
