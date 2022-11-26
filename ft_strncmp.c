@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/23 11:58:15 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/11/26 20:09:22 by ialdecoa         ###   ########.fr       */
+/*   Created: 2022/11/26 20:33:53 by ialdecoa          #+#    #+#             */
+/*   Updated: 2022/11/26 20:34:21 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	*ft_memmove(void *dest, const void *src, size_t len)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	char		*d;
-	const char	*s;
+	unsigned int	c;
 
-	d = dest;
-	s = src;
-	if (d > s)
-		while (len-- > 0)
-			d[len] = s[len];
-	else
-		while (len-- > 0)
-			*(d++) = *(s++);
-	return (dest);
+	c = 0;
+	while ((s1[c] != '\0' || s2[c] != '\0') && c < n)
+	{
+		if (s1[c] > s2[c])
+			return (1);
+		if (s1[c] < s2[c])
+			return (-1);
+	c++;
+	}
+	return (0);
 }

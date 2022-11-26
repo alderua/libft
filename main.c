@@ -6,7 +6,7 @@
 /*   By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 20:03:19 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/11/25 06:09:52 by ialdecoa         ###   ########.fr       */
+/*   Updated: 2022/11/26 21:58:33 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,10 +141,11 @@ int test_memmove(void)
 {
 	char	len[] = "hola amigo";
 	char	dest[] = "hola primo como estas";
-	int	l = 12;
+	int	l = 10;
 
 	printf("\n%s\n", len);
 	ft_memmove(len, dest, l);
+//	memmove(len, dest, l);
 	printf("%s\n", len);
 	return(0);
 }
@@ -172,7 +173,7 @@ int test_tolower(void)
 int test_strchr(void)
 {
 	char	*a = "hola amigo que tal estas";
-	char	c = 'l';
+	char	c = '\0';
 	char	*p = "";
 
 	p = ft_strchr(a, c);
@@ -180,6 +181,45 @@ int test_strchr(void)
 	printf("mi char= %c \n", *p);
 	if (p != 0)
 		printf("Caracter inicial: %c \n", *p);
+	return(0);
+}
+
+int test_strrchr(void)
+{
+	char	*a = "hola amigo que tal estas";
+	char	c = '\0';
+	char	*p = "";
+
+	p = ft_strrchr(a, c);
+//	p = strchr(a, c);
+	printf("mi char= %c \n", *p);
+	if (p != 0)
+		printf("Caracter inicial: %c \n", *p);
+	return(0);
+}
+
+int	test_strncmp(void)
+{
+	char	a1[] = "ab";
+	char	a2[] = "a";
+	int		a;
+
+	a = ft_strncmp(a1, a2, 2);
+	printf("%d\n", a);
+
+	return(0);
+}
+
+int	test_memchr(void)
+{
+	char	a[] = "hola amigo";
+	char	b = 'm';
+	char	*res;
+
+	printf("%s\n", a);
+	res = ft_memchr(a, b, strlen(a));
+	printf("%s\n", res);
+
 	return(0);
 }
 
@@ -204,9 +244,12 @@ int	main(void)
 		printf("\n 10 - ft_memmove");
 		printf("\n 11 - ft_toupper");
 		printf("\n 12 - ft_tolower");
-		printf("\n 13 - ft_strchr\n");
+		printf("\n 13 - ft_strchr");
+		printf("\n 14 - ft_strrchr");
+		printf("\n 15 - ft_strncmp");
+		printf("\n 16 - ft_memchr\n");
 		scanf("%d", &test);
-		if (test >= 0 && test <= 13)
+		if (test >= 0 && test <= 16)
 		{
 			if (test == 0)
 				printf("hasta luego crack");
@@ -236,6 +279,14 @@ int	main(void)
 				test_tolower();
 			if (test == 13)
 				test_strchr();
+			if (test == 14)
+				test_strrchr();
+			if (test == 15)
+				test_strncmp();
+			if (test == 16)
+				test_memchr();
+
+
 		}
 		else
 			printf("Test inexistente, prueba de nuevo");

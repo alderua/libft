@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/23 11:58:15 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/11/26 20:09:22 by ialdecoa         ###   ########.fr       */
+/*   Created: 2022/11/26 21:04:59 by ialdecoa          #+#    #+#             */
+/*   Updated: 2022/11/26 21:57:24 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	*ft_memmove(void *dest, const void *src, size_t len)
+void	*ft_memchr(const void *s, int c, unsigned int len)
 {
-	char		*d;
-	const char	*s;
+	unsigned char	*str;
+	unsigned char	ch;
 
-	d = dest;
-	s = src;
-	if (d > s)
-		while (len-- > 0)
-			d[len] = s[len];
-	else
-		while (len-- > 0)
-			*(d++) = *(s++);
-	return (dest);
+	str = (unsigned char *)s;
+	ch = (unsigned char)c;
+	while (len-- > 0)
+	{
+		if (*str == ch)
+			return (str);
+		str++;
+	}	
+	return (0);
 }
