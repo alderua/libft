@@ -6,7 +6,7 @@
 /*   By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 20:03:19 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/11/26 21:58:33 by ialdecoa         ###   ########.fr       */
+/*   Updated: 2022/11/27 11:57:11 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,6 +223,32 @@ int	test_memchr(void)
 	return(0);
 }
 
+int test_memcmp(void)
+{
+	char *a1 = "hola b";
+	char *a2 = "hola a";
+	int l = 6;
+	int r;
+
+	r = ft_memcmp(a1, a2, l);
+	printf("el resultado es: %d\n", r);
+
+	return(0);
+}
+
+int test_strlcpy(void)
+{
+	char ch1[20];
+	char *ch2 = "hola amiga, que tal";
+	int		l = 25;
+
+	printf("%s\n", ch1);
+	printf("El resultado es: %d\n", ft_strlcpy(ch1, ch2, l));
+	printf("%s\n", ch1);
+
+	return(0);
+}
+
 int	main(void)
 {
 	int	test;
@@ -247,9 +273,11 @@ int	main(void)
 		printf("\n 13 - ft_strchr");
 		printf("\n 14 - ft_strrchr");
 		printf("\n 15 - ft_strncmp");
-		printf("\n 16 - ft_memchr\n");
+		printf("\n 16 - ft_memchr");
+		printf("\n 17 - ft_memcmp");
+		printf("\n 18 - ft_strlcpy\n");
 		scanf("%d", &test);
-		if (test >= 0 && test <= 16)
+		if (test >= 0 && test <= 18)
 		{
 			if (test == 0)
 				printf("hasta luego crack");
@@ -285,7 +313,10 @@ int	main(void)
 				test_strncmp();
 			if (test == 16)
 				test_memchr();
-
+			if (test == 17)
+				test_memcmp();
+			if (test == 18)
+				test_strlcpy();
 
 		}
 		else

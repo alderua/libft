@@ -6,7 +6,7 @@
 /*   By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 20:24:16 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/11/26 21:37:29 by ialdecoa         ###   ########.fr       */
+/*   Updated: 2022/11/27 11:46:18 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,5 @@ char	*ft_strchr(char[], int);
 char	*ft_strrchr(char[], int);
 int		ft_strncmp(char[], char[], size_t);
 void	*ft_memchr(char[], int, size_t);
+int		ft_memcmp(char[], char[], size_t);
+int		ft_strlcpy(char[], char[], size_t);
