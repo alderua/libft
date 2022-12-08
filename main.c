@@ -6,7 +6,7 @@
 /*   By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 20:03:19 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/11/27 11:57:11 by ialdecoa         ###   ########.fr       */
+/*   Updated: 2022/12/08 14:15:58 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,13 +238,27 @@ int test_memcmp(void)
 
 int test_strlcpy(void)
 {
-	char ch1[20];
+	char ch1[20] = "";
 	char *ch2 = "hola amiga, que tal";
-	int		l = 25;
+	int		l = 14;
 
 	printf("%s\n", ch1);
 	printf("El resultado es: %d\n", ft_strlcpy(ch1, ch2, l));
 	printf("%s\n", ch1);
+
+	return(0);
+}
+
+int test_strnstr(void)
+{
+	char *ch1 = "hola amiga, que tal";
+	char *ch2 = "la";
+	char *res;
+	int		l = 20;
+
+	printf("%s\n", ch1);
+	res = ft_strnstr(ch1, ch2, l);
+	printf("%s\n", res);
 
 	return(0);
 }
@@ -275,9 +289,10 @@ int	main(void)
 		printf("\n 15 - ft_strncmp");
 		printf("\n 16 - ft_memchr");
 		printf("\n 17 - ft_memcmp");
-		printf("\n 18 - ft_strlcpy\n");
+		printf("\n 18 - ft_strlcpy");
+		printf("\n 19 - ft_strnstr\n");
 		scanf("%d", &test);
-		if (test >= 0 && test <= 18)
+		if (test >= 0 && test <= 19)
 		{
 			if (test == 0)
 				printf("hasta luego crack");
@@ -317,6 +332,9 @@ int	main(void)
 				test_memcmp();
 			if (test == 18)
 				test_strlcpy();
+			if (test == 19)
+				test_strnstr();
+
 
 		}
 		else

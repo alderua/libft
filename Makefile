@@ -6,7 +6,7 @@
 #    By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/22 20:06:51 by ialdecoa          #+#    #+#              #
-#    Updated: 2022/11/27 11:41:41 by ialdecoa         ###   ########.fr        #
+#    Updated: 2022/12/08 13:57:24 by ialdecoa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 OBJS = main.o ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o \
 	   ft_strlen.o ft_memset.o ft_bzero.o ft_memcpy.o ft_memmove.o ft_toupper.o \
 	   ft_tolower.o ft_strchr.o ft_strrchr.o ft_strncmp.o ft_memchr.o ft_memcmp.o\
-	   ft_strlcpy.o
+	   ft_strlcpy.o ft_strnstr.o
 
 CFLAGS = -Wall -Werror -Wextra
 
@@ -43,6 +43,7 @@ ft_strncmp.o: ft_strncmp.c libft.h
 ft_memchr.o: ft_memchr.c libft.h
 ft_memcmp.o: ft_memcmp.c libft.h
 ft_strlcpy.o: ft_strlcpy.c libft.h
+ft_strnstr.o: ft_strnstr.c libft.h
 
 .PHONY: fclean
 
