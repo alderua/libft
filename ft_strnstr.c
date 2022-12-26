@@ -6,7 +6,7 @@
 /*   By: ialdecoa <ialdecoa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 13:29:00 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/12/08 14:15:26 by ialdecoa         ###   ########.fr       */
+/*   Updated: 2022/12/26 18:38:59 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strnstr(const char *paja, const char *aguja, unsigned int l)
 			while (a + b < l && paja[a + b] == aguja[b])
 			{
 				b++;
-				if(!aguja[b])
+				if (!aguja[b])
 					return ((char *)&paja[a]);
 			}
 		}

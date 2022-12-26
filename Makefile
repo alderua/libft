@@ -3,52 +3,120 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: iagudo-d <iagudo-d@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/22 20:06:51 by ialdecoa          #+#    #+#              #
-#    Updated: 2022/12/08 13:57:24 by ialdecoa         ###   ########.fr        #
+#    Created: 2022/09/19 17:46:51 by iagudo-d          #+#    #+#              #
+#    Updated: 2022/12/26 19:52:17 by ialdecoa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+COL_RESET			=	\033[0m
+COL_BLACK			=	\033[0;30m
+COL_RED				=	\033[0;31m
+COL_GREEN			=	\033[0;32m
+COL_YELLOW			=	\033[0;33m
+COL_BLUE			=	\033[0;34m
+COL_MAG				=	\033[0;35m
+COL_CYAN			=	\033[0;36m
+COL_WHITE			=	\033[0;37m
+COL_BOLD_BLACK		=	\033[1;30m
+COL_BOLD_RED		=	\033[1;31m
+COL_BOLD_GREEN		=	\033[1;32m
+COL_BOLD_YELLOW		=	\033[1;33m
+COL_BOLD_BLUE		=	\033[1;34m
+COL_BOLD_MAG		=	\033[1;35m
+COL_BOLD_CYAN		=	\033[1;36m
+COL_BOLD_WHITE		=	\033[1;37m
+COL_BACK_BLACK		=	\033[40m
+COL_BACK_RED		=	\033[41m
+COL_BACK_GREEN		=	\033[42m
+COL_BACK_YELLOW		=	\033[43m
+COL_BACK_BLUE		=	\033[44m
+COL_BACK_MAG		=	\033[45m
+COL_BACK_CYAN		=	\033[46m
+COL_BACK_WHITE		=	\033[47m
+
 NAME = libft.a
-OBJS = main.o ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o \
-	   ft_strlen.o ft_memset.o ft_bzero.o ft_memcpy.o ft_memmove.o ft_toupper.o \
-	   ft_tolower.o ft_strchr.o ft_strrchr.o ft_strncmp.o ft_memchr.o ft_memcmp.o\
-	   ft_strlcpy.o ft_strnstr.o
 
-CFLAGS = -Wall -Werror -Wextra
+HEADERNAME = libft.h
 
-#Esta regla compila el programa pricipal.
-all: $(NAME)
+RM 		= rm -rf
 
-$(NAME): $(OBJS)
-		gcc $(CFLAGS) -o $@ $(OBJS)
+CC 		= gcc
 
-main.o: main.c libft.h
-ft_isalpha.o: ft_isalpha.c libft.h
-ft_isdigit.o: ft_isdigit.c libft.h
-ft_isalnum.o: ft_isalnum.c libft.h
-ft_isascii.o: ft_isascii.c libft.h
-ft_isprint.o: ft_isprint.c libft.h
-ft_strlen.o: ft_strlen.c libft.h
-ft_memset.o: ft_memset.c libft.h
-ft_bzero.o: ft_bzero.c libft.h
-ft_memcpy.o: ft_memcpy.c libft.h
-ft_memmove.o: ft_memmove.c libft.h
-ft_toupper.o: ft_toupper.c libft.h
-ft_tolower.o: ft_tolower.c libft.h
-ft_strchr.o: ft_strchr.c libft.h
-ft_strrchr.o: ft_strrchr.c libft.h
-ft_strncmp.o: ft_strncmp.c libft.h
-ft_memchr.o: ft_memchr.c libft.h
-ft_memcmp.o: ft_memcmp.c libft.h
-ft_strlcpy.o: ft_strlcpy.c libft.h
-ft_strnstr.o: ft_strnstr.c libft.h
+CFLAGS 		= -Wall -Wextra -Werror -c
 
-.PHONY: fclean
+AR 		= ar
 
-clean:
-		@rm -f $(OBJS)
+ARFLAGS 	= -r -c -s
+
+SRCS = ft_isalnum.c \
+	   ft_isalpha.c \
+	   ft_isascii.c \
+	   ft_isdigit.c \
+	   ft_isprint.c \
+	   ft_strlen.c \
+	   ft_memchr.c \
+	   ft_memset.c \
+	   ft_memcpy.c \
+	   ft_memmove.c \
+	   ft_memcmp.c \
+	   ft_bzero.c \
+	   ft_toupper.c \
+	   ft_tolower.c \
+	   ft_strlcpy.c \
+	   ft_strlcat.c \
+	   ft_strchr.c \
+	   ft_strrchr.c \
+	   ft_strncmp.c \
+	   ft_strnstr.c \
+
+OBJS 		= $(SRCS:.c=.o)
+
+BONUSOBJS 	= $(SRCSBONUS:.c=.o)
+
+$(NAME): $(OBJS) $(HEADERNAME) #datos_objs_created datos_empaquetado_objs
+#	@echo -e "\t${COL_BOLD_YELLOW} Empaquetando libreria $(NAME):\n${COL_RESET}"	
+	${AR} ${ARFLAGS} $(NAME) ${OBJS}
+
+all: $(NAME) bonus
+
+clean: 
+	@${RM} ${OBJS} ${BONUSOBJS}
 
 fclean: clean
-		@rm -f $(NAME)
+	$(RM) $(NAME)
+
+re: fclean all
+
+%.o: %.c $(HEADERNAME)
+	@echo -e "\t${COL_BOLD_YELLOW} Compilando funcion: ${COL_BLUE} $< \t ${COL_RED} ->\c"
+	@${CC} ${CFLAGS} $< -o ${<:.c=.o}
+	@echo -e " ${COL_BOLD_GREEN}[ Compilado OK ]${COL_RESET}"
+
+.PHONY: all clean fclean bonus re so #datos_comp_objs datos_empaquetado_objs
+
+
+#----------------	REGLAS ORNAMENTALES E INFORMATIVAS
+
+#datos_objs_compliling:
+	@echo -e "${COL_BOLD_GREEN}\n\t\t--------CREANDO OBJETOS--------\n${COL_RESET}\c"
+	@echo -e "${COL_BOLD_CYAN}\n\t Parametros:\n${COL_RESET}\c"
+	@echo -e "${COL_BOLD_CYAN}\n\t Compilador:\t\t ${CC}\n\t Flags de compilado:\t ${CFLAGS}\n${COL_RESET}"
+	
+#datos_objs_created:
+	@echo -e "${COL_BOLD_GREEN}\n\t\t--------OBJETOS CREADOS CORRECTAMENTE--------\n${COL_RESET}\c"
+	
+#datos_empaquetado_objs:
+	@echo -e "${COL_BOLD_GREEN}\n\t\t--------CREANDO LA LIBRERIA--------\n${COL_RESET}\c"
+	@echo -e "${CO_BOLD_CYAN}\n\t Empaquetador:\t\t ${AR}\n\t Flags de empaquetado:\t ${ARFLAGS}\n\n"
+
+#----------------	REGLA PARA PASAR TEST EN LINUX
+#so:
+#	$(CC) -fPIC $(CFLAGS) $(SRCS) $(SRCSBONUS)
+#	gcc -shared -o libft.so $(OBJS) $(BONUSOBJS)
+
+#rmobjs: $(OBJS)
+#	rm -f $< -v $(OBJS)
+
+
