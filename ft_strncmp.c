@@ -6,22 +6,26 @@
 /*   By: ialdecoa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 20:33:53 by ialdecoa          #+#    #+#             */
-/*   Updated: 2022/11/26 20:34:21 by ialdecoa         ###   ########.fr       */
+/*   Updated: 2022/12/27 00:58:21 by ialdecoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
-{
-	unsigned int	c;
+#include "libft.h"
 
-	c = 0;
-	while ((s1[c] != '\0' || s2[c] != '\0') && c < n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	unsigned char	*ss1;
+	unsigned char	*ss2;
+
+	ss1 = (unsigned char *)s1;
+	ss2 = (unsigned char *)s2;
+	if (n == 0)
+		return (0);
+	while ((*ss1 != '\0' || *ss2 != '\0') && (n - 1 > 0) && (*ss1 == *ss2))
 	{
-		if (s1[c] > s2[c])
-			return (1);
-		if (s1[c] < s2[c])
-			return (-1);
-	c++;
+		ss1++;
+		ss2++;
+		n--;
 	}
-	return (0);
+	return (*ss1 - *ss2);
 }
